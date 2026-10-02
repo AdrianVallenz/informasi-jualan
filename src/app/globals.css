@@ -1,26 +1,98 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --primary: #0064D2;
+    --primary-hover: #004FB3;
+    --secondary-red: #E53238;
+    --accent-yellow: #F5AF02;
+    --accent-green: #86B817;
+    --bg-canvas: #F7F7F7;
+    --surface: #FFFFFF;
+    --text-primary: #191919;
+    --text-secondary: #707070;
+    --border-color: #E5E5E5;
+  }
+
+  body {
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    font-family: var(--font-dm-sans), system-ui, -apple-system, sans-serif;
+    letter-spacing: 0em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.01em;
+  }
+
+  .font-mono {
+    font-family: var(--font-jetbrains-mono), monospace;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Auction Quad Specific Elevations */
+.shadow-lvl1 {
+  box-shadow: 0 1px 3px rgba(25, 25, 25, 0.08);
+}
+
+.shadow-lvl2 {
+  box-shadow: 0 4px 12px rgba(25, 25, 25, 0.1);
+}
+
+.shadow-lvl3 {
+  box-shadow: 0 8px 24px rgba(25, 25, 25, 0.14);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F7F7;
+}
+::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
+
+/* PRINT MEDIA STYLES FOR OFFICIAL WAREHOUSE REPORTS & RECEIPTS */
+@media print {
+  body {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+    font-size: 11pt;
+  }
+
+  /* Hide navigation, buttons, drawers, and interactive web elements */
+  nav,
+  header,
+  aside,
+  .no-print,
+  button,
+  .btn-print-hide {
+    display: none !important;
+  }
+
+  /* Make sure printable content takes full width and breaks cleanly */
+  .printable-area {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .print-page-break {
+    page-break-after: always;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm 15mm 15mm;
+  }
 }
