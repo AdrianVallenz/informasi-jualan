@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📦 SIPB WAREHOUSE - Sistem Informasi Penjualan Barang Berbasis Warehouse
 
-## Getting Started
+Aplikasi modern pengelolaan pergudangan, inventaris rak gudang, kasir POS penjualan cepat, dan pusat seluruh laporan bisnis eksekutif siap cetak resmi.
 
-First, run the development server:
+Didesain secara ketat menggunakan **Auction Quad Design System** (palet 4 warna khas: Blue `#0064D2`, Red `#E53238`, Yellow `#F5AF02`, Green `#86B817`, DM Sans & JetBrains Mono).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌟 Fitur Utama
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 1. Multi-Role & Keamanan (RBAC)
+- **Admin Gudang (`admin` / `admin123`)**:
+  - Full akses master data barang & alokasi rak fisik (CRUD).
+  - Inbound restock penerimaan barang supplier dengan nomor PO / Surat Jalan.
+  - POS kasir penjualan & audit riwayat seluruh transaksi toko (CSV Export).
+  - **Pusat Seluruh Laporan Eksekutif Bisa Diakses & Dicetak Resmi** (`window.print()` layout A4 formal).
+- **Kasir Toko (`kasir` / `kasir123`)**:
+  - POS Kasir Penjualan Cepat dengan pencarian/scan SKU instan.
+  - Katalog stok barang dengan informasi letak rak gudang (tanpa menampilkan harga beli/HPP modal).
+  - Kalkulator uang tunai, QRIS, dan transfer bank.
+  - Cetak struk belanja pelanggan / slip pengambilan barang gudang.
+  - Dibatasi secara aman dari akses manajemen gudang dan laporan laba rugi.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 2. Seluruh Laporan Bisnis (Khusus Admin & Bisa Dicetak)
+1. **Laporan Penjualan**: Rekap omzet, total transaksi, total item terjual, basket size, dan rincian per metode bayar.
+2. **Laporan Laba & Rugi (HPP)**: Omzet penjualan, Harga Pokok Penjualan (modal barang keluar), Laba Kotor (Gross Profit), dan Margin Keuntungan (%).
+3. **Laporan Valuasi & Stok Gudang (Stock Opname)**: Total nilai aset modal persediaan gudang, potensi omzet penjualan, dan audit stok fisik di rak.
+4. **Laporan Barang Terlaris (Top 5 Best Seller)**: Peringkat 1–5 barang paling laku dan analisis perputaran barang (*Fast-Moving Goods*).
+5. **Format Dokumen Resmi**: Dilengkapi kop surat (*letterhead*), nomor dokumen laporan, tabel angka JetBrains Mono rapi, dan kolom tanda tangan penanggung jawab gudang & direktur.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚀 Teknologi yang Digunakan
+- **Framework**: Next.js 16 (App Router) + React 19
+- **Styling**: Tailwind CSS v4 + Auction Quad Design System
+- **Database Cloud**: PostgreSQL Supabase Cloud
+- **Tipografi**: DM Sans (Display & Body) & JetBrains Mono (Prices, SKU, Invoice, Numbers)
+- **Icons**: Lucide React
